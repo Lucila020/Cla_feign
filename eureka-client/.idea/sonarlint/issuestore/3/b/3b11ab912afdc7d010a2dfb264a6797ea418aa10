@@ -1,0 +1,5 @@
+
+v"squid:LeftCurlyBraceStartLineCheck"AMove this left curly brace to the beginning of next line of code.(˜‡®Ï8‰³úÙí-
+>squid:S00113"'Add a new line at the end of this file.8‰³úÙí-
+rsquid:S1609"TAnnotate the "GreetingController" interface with the @FunctionalInterface annotation(˜‡®Ï8‰³úÙí-
+msquid:IndentationCheck"DMake this line start after 2 spaces to indent the code consistently.(ñ ‡†8‰³úÙí-

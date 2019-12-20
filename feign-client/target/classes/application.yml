@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: producer
+  mvc:
+    servlet:
+      path: /v1/core/producer
+  #main:
+    #allow-bean-definition-overriding: true
+#opentracing:
+    #jaeger:
+      #http-sender:
+        #url: http://localhost:16686/api/traces
+    #enable-b3-propagation: true
+server:
+  port: 9050
+#eureka:
+  #client:
+    #serviceUrl:
+      #defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}

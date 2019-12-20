@@ -1,0 +1,6 @@
+
+o"squid:LeftCurlyBraceStartLineCheck"AMove this left curly brace to the beginning of next line of code.(¥ÜÌÑ
+Úsquid:S4605"»'GreetingController' is not reachable by @ComponentsScan or @SpringBootApplication. Either move it to a package configured in @ComponentsScan or update your @ComponentsScan configuration.(¥ÜÌÑ8Ñôöªñ-
+v"squid:LeftCurlyBraceStartLineCheck"AMove this left curly brace to the beginning of next line of code.(“×Ž¿8çúâ«ñ-
+csquid:S1162"ERemove the usage of the checked exception 'InvalidGreetingException'.(œÏÈî8ÄºùÇñ-
+v"squid:LeftCurlyBraceStartLineCheck"AMove this left curly brace to the beginning of next line of code.(ÐñÃÇ8çúâ«ñ-

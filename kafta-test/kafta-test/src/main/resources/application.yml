@@ -1,0 +1,13 @@
+spring:
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+      bindings:
+        greetings-in:
+          destination: topic-basic-test
+          contentType: application/json
+        greetings-out:
+          destination: topic-basic-test
+          contentType: application/json
