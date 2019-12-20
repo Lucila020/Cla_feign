@@ -1,0 +1,37 @@
+{
+	"id": "1a96e99a-d536-ce10-5461-fb08cbba7bc3",
+	"name": "Albums",
+	"description": "",
+	"order": [
+		"6e5c9acc-eedc-e68b-9226-907f9f21000b"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1576605910313,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "6e5c9acc-eedc-e68b-9226-907f9f21000b",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/users/111/albums",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1576680800901,
+			"name": "Get",
+			"description": "",
+			"collectionId": "1a96e99a-d536-ce10-5461-fb08cbba7bc3",
+			"responses": []
+		}
+	]
+}
