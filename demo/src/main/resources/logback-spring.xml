@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" debug="true">
+  <property resource="bootstrap.properties" />
+
+  <appender class="ch.qos.logback.core.rolling.RollingFileAppender" name="file">
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+      <fileNamePattern>/home/claro/logs/${spring.application.name}/v1/%d{yyyy-MM-dd}/%d{HH}_%i.log</fileNamePattern>
+      <maxFileSize>100MB</maxFileSize>
+      <maxHistory>1</maxHistory>
+      <totalSizeCap>5GB</totalSizeCap>
+      <cleanHistoryOnStart>true</cleanHistoryOnStart>
+    </rollingPolicy>
+    <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+      <providers>
+        <pattern>
+          <pattern>{
+            "appName": "${APP_NAME}",
+            "appVersion": "${APP_VERSION}",
+            "timestamp": "%d{yyyy-MM-dd_HH:mm:ss.SSS}"
+            }</pattern>
+        </pattern>
+        <threadName/>
+        <logstashMarkers/>
+        <logLevel/>
+        <loggerName/>
+        <message/>
+        <arguments/>
+        <stackTrace/>
+      </providers>
+    </encoder>
+  </appender>
+
+  <appender class="ch.qos.logback.classic.AsyncAppender" name="AsyncFile">
+    <queueSize>1024</queueSize>
+    <discardingThreshold>0</discardingThreshold>
+    <neverBlock>true</neverBlock>
+    <appender-ref ref="file"/>
+  </appender>
+
+  <!-- this Appender logs on console, used for debug purpouse -->
+  <if condition='property("logging.console.enabled").equals("true")'>
+    <then>
+      <appender class="ch.qos.logback.core.ConsoleAppender" name="console">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+          <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger<!--{5}--> - %msg%n
+          </pattern>
+        </encoder>
+      </appender>
+    </then>
+  </if>
+
+  <logger name="org.springframework" level="info" additivity="false">
+    <appender-ref ref="AsyncFile"/>
+    <if condition='property("logging.console.enabled").equals("true")'>
+      <then>
+        <appender-ref ref="console"/>
+      </then>
+    </if>
+  </logger>
+
+  <logger name="org.apache" level="info" additivity="false">
+    <appender-ref ref="AsyncFile"/>
+    <if condition='property("logging.console.enabled").equals("true")'>
+      <then>
+        <appender-ref ref="console"/>
+      </then>
+    </if>
+  </logger>
+
+  <logger name="org.hibernate" level="info" additivity="false">
+    <appender-ref ref="AsyncFile"/>
+    <if condition='property("logging.console.enabled").equals("true")'>
+      <then>
+        <appender-ref ref="console"/>
+      </then>
+    </if>
+  </logger>
+
+  <logger name="com.zaxxer.hikari" level="info" additivity="false">
+    <appender-ref ref="AsyncFile"/>
+    <if condition='property("logging.console.enabled").equals("true")'>
+      <then>
+        <appender-ref ref="console"/>
+      </then>
+    </if>
+  </logger>
+
+  <!-- default Logger for the App -->
+  <root level="debug">
+    <appender-ref ref="AsyncFile"/>
+    <if condition='property("${logging.console.enabled}").equals("true")'>
+      <then>
+        <appender-ref ref="console"/>
+      </then>
+    </if>
+  </root>
+
+</configuration>
